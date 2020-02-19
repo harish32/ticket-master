@@ -23,11 +23,11 @@ app.use(express.json());
 //   cors({ origin: "https://ticketmastr.herokuapp.com/", credentials: true })
 // );
 // app.use()
-app.use("api/user", auth);
-app.use("api/customers", customers);
-app.use("api/departments", departments);
-app.use("api/employees", employees);
-app.use("api/tickets", tickets);
+app.use("/api/user", auth);
+app.use("/api/customers", customers);
+app.use("/api/departments", departments);
+app.use("/api/employees", employees);
+app.use("/api/tickets", tickets);
 
 app.use(error);
 
