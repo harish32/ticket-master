@@ -18,7 +18,7 @@ const tickets = require("./routes/tickets");
 app.use(expressFileupload());
 app.use(cookieparser());
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: "*", credentials: true }));
 // app.use()
 app.use("/user", auth);
 app.use("/customers", customers);
