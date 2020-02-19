@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ticketSchema = {
   code: {
     type: String,
-    required: true
+    required: [true, "code is required"]
   },
   priority: {
     type: String,
@@ -14,17 +14,17 @@ const ticketSchema = {
   customer: {
     type: Schema.Types.ObjectId,
     ref: "Customer",
-    required: true
+    required: [true, "customer is required"]
   },
   department: {
     type: Schema.Types.ObjectId,
     ref: "Department",
-    required: true
+    required: [true, "department is required"]
   },
   employees: [{ type: Schema.Types.ObjectId, ref: "Employee" }],
   message: {
     type: String,
-    required: true
+    required: [true, "message is required"]
   },
   isDone: {
     type: Boolean,
