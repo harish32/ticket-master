@@ -19,7 +19,9 @@ const tickets = require("./routes/tickets");
 app.use(expressFileupload());
 app.use(cookieparser());
 app.use(express.json());
-app.use(cors({ origin: "*", credentials: true }));
+app.use(
+  cors({ origin: "https://ticketmastr.herokuapp.com/", credentials: true })
+);
 // app.use()
 app.use("/user", auth);
 app.use("/customers", customers);
