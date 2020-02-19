@@ -18,7 +18,7 @@ store.subscribe(() => {
 });
 
 const getUser = async () => {
-  const user = await axios.get("/user/getuser", {
+  const user = await axios.get("/api/user/getuser", {
     withCredentials: true
   });
   if (user.data.success) {

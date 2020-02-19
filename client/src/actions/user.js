@@ -15,7 +15,7 @@ export const removeUser = () => {
 export const startRegister = (data, history) => {
   return async dispatch => {
     try {
-      const user = await axios.post("/user/register", data, {
+      const user = await axios.post("/api/user/register", data, {
         withCredentials: true
       });
       if (user.data.success) {
@@ -35,7 +35,7 @@ export const startRegister = (data, history) => {
 export const startLogin = (data, history) => {
   return async dispatch => {
     try {
-      const user = await axios.post("/user/login", data, {
+      const user = await axios.post("/api/user/login", data, {
         withCredentials: true
       });
       if (user.data.success) {
@@ -55,7 +55,7 @@ export const startLogin = (data, history) => {
 export const startLogout = history => {
   return async dispatch => {
     try {
-      const user = await axios.get("/user/logout", {
+      const user = await axios.get("/api/user/logout", {
         withCredentials: true
       });
       if (user.data.success) {

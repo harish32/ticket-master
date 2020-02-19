@@ -14,7 +14,7 @@ export const startAddEmployee = data => {
   fdata.append("departmentId", data.department);
   return async dispatch => {
     try {
-      const employee = await axios.post("/employees", fdata, {
+      const employee = await axios.post("/api/employees", fdata, {
         withCredentials: true,
         headers: { "Content-Type": "multipart/form-data" }
       });
@@ -41,7 +41,7 @@ export const startEditEmployee = (id, data) => {
   fdata.append("departmentId", data.department);
   return async dispatch => {
     try {
-      const employee = await axios.put(`/employees/${id}`, fdata, {
+      const employee = await axios.put(`/api/employees/${id}`, fdata, {
         withCredentials: true
       });
       if (employee.data.success) {
@@ -63,7 +63,7 @@ export const startRemoveEmployee = (depid, empid) => {
     try {
       const confirm = await confirmAlert();
       if (confirm.value) {
-        const employee = await axios.delete(`/employees/${empid}`, {
+        const employee = await axios.delete(`/api/employees/${empid}`, {
           withCredentials: true
         });
         if (employee.data.success) {

@@ -7,7 +7,7 @@ const setDepartments = departments => {
 
 export const startGetDepartments = () => {
   return async dispatch => {
-    const departments = await axios.get("/departments", {
+    const departments = await axios.get("/api/departments", {
       withCredentials: true
     });
     if (departments.data.success) {
@@ -24,7 +24,7 @@ const addDepartment = department => {
 export const startAddDepartment = data => {
   return async dispatch => {
     try {
-      const department = await axios.post("/departments", data, {
+      const department = await axios.post("/api/departments", data, {
         withCredentials: true
       });
       if (department.data.success) {
@@ -44,7 +44,7 @@ const editDepartment = (name, id) => {
 export const startEditDepartment = (id, data) => {
   return async dispatch => {
     try {
-      const department = await axios.put(`/departments/${id}`, data, {
+      const department = await axios.put(`/api/departments/${id}`, data, {
         withCredentials: true
       });
       if (department.data.success) {
@@ -66,7 +66,7 @@ export const startRemoveDepartment = id => {
     try {
       const confirm = await confirmAlert();
       if (confirm.value) {
-        const department = await axios.delete(`/departments/${id}`, {
+        const department = await axios.delete(`/api/departments/${id}`, {
           withCredentials: true
         });
         if (department.data.success) {

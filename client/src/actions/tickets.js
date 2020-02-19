@@ -7,7 +7,7 @@ const setTickets = tickets => {
 
 export const startGetTickets = () => {
   return async dispatch => {
-    const tickets = await axios.get("/tickets", { withCredentials: true });
+    const tickets = await axios.get("/api/tickets", { withCredentials: true });
     if (tickets.data.success) {
       dispatch(setTickets(tickets.data.data));
     }
@@ -21,7 +21,7 @@ const addTicket = ticket => {
 export const startAddTicket = (data, history) => {
   return async dispatch => {
     try {
-      const ticket = await axios.post("/tickets", data, {
+      const ticket = await axios.post("/api/tickets", data, {
         withCredentials: true
       });
       if (ticket.data.success) {
@@ -42,7 +42,7 @@ const updateTicket = (id, ticket) => {
 export const startUpdateTicket = (id, data, history) => {
   return async dispatch => {
     try {
-      const ticket = await axios.put(`/tickets/${id}`, data, {
+      const ticket = await axios.put(`/api/tickets/${id}`, data, {
         withCredentials: true
       });
       if (ticket.data.success) {
@@ -65,7 +65,7 @@ export const startDeleteTicket = id => {
     try {
       const confirm = await confirmAlert();
       if (confirm.value) {
-        const ticket = await axios.delete(`/tickets/${id}`, {
+        const ticket = await axios.delete(`/api/tickets/${id}`, {
           withCredentials: true
         });
         if (ticket.data.success) {
@@ -84,7 +84,7 @@ const resolveTicket = (id, status) => {
 
 export const startResolveTicket = (id, data) => {
   return async dispatch => {
-    const ticket = await axios.put(`/tickets/${id}/resolve`, data, {
+    const ticket = await axios.put(`/api/tickets/${id}/resolve`, data, {
       withCredentials: true
     });
     if (ticket.data.success) {

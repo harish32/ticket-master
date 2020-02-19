@@ -7,7 +7,9 @@ const setCustomers = customers => {
 
 export const startGetCustomers = () => {
   return async dispatch => {
-    const customers = await axios.get("/customers", { withCredentials: true });
+    const customers = await axios.get("/api/customers", {
+      withCredentials: true
+    });
     if (customers.data.success) {
       dispatch(setCustomers(customers.data.data));
     } else {
@@ -23,7 +25,7 @@ const addCustomer = customer => {
 export const startAddCustomer = data => {
   return async dispatch => {
     try {
-      const customer = await axios.post("/customers", data, {
+      const customer = await axios.post("/api/customers", data, {
         withCredentials: true
       });
       if (customer.data.success) {
@@ -43,7 +45,7 @@ const updateCustomer = (id, customer) => {
 export const startEditCustomer = (id, data) => {
   return async dispatch => {
     try {
-      const customer = await axios.put(`/customers/${id}`, data, {
+      const customer = await axios.put(`/api/customers/${id}`, data, {
         withCredentials: true
       });
       if (customer.data.success) {
@@ -65,7 +67,7 @@ export const startRemoveCustomer = id => {
     try {
       const confirm = await confirmAlert();
       if (confirm.value) {
-        const status = await axios.delete(`/customers/${id}`, {
+        const status = await axios.delete(`/api/customers/${id}`, {
           withCredentials: true
         });
         if (status.data.success) {
