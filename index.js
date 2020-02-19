@@ -7,6 +7,7 @@ const cors = require("cors");
 const cookieparser = require("cookie-parser");
 const expressFileupload = require("express-fileupload");
 database();
+const path = require("path");
 
 const error = require("./middleware/error");
 const auth = require("./routes/auth");
