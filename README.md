@@ -19,6 +19,7 @@ You can find my app [here](https://ticketmastr.herokuapp.com/)
 - uses cookies for token storage
 - uses mongodb as database
 - uses es7 async/await
+- uses express-fileupload for file upload
 
 ## installation
 
