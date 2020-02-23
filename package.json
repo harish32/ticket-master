@@ -9,8 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "concurrently \"nodemon index.js\" \"cd client && npm start\"  ",
-    "dev-start": "nodemon index.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "dev-start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -29,7 +28,6 @@
     "nodemon": "^2.0.2"
   },
   "devDependencies": {
-    "concurrently": "^5.0.2",
-    "readme-md-generator": "^1.0.0"
+    "concurrently": "^5.0.2"
   }
 }
